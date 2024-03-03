@@ -10,7 +10,11 @@ function Movie({ id, movie }) {
       </h2>
 
       <img src={movie.medium_cover_image} />
-      <p>{movie.summary}</p>
+      <p>
+        {movie.summary.length > 235
+          ? `${movie.summary.slice(0, 235)}...`
+          : movie.summary}
+      </p>
       <ul>
         {movie.genres.map((g) => (
           <li key={g}>{g}</li>
